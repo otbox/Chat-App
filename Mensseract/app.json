@@ -1,0 +1,30 @@
+{
+  "expo": {
+    "name": "Mensseract",
+    "slug": "Mensseract",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/menseract_icon10-remove.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/images/splash-icon.jpg",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/menseract_icon10-remove.png",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}

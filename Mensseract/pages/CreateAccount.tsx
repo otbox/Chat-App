@@ -1,24 +1,27 @@
 import { Image, StyleSheet, Text, View } from "react-native";
 import TextField from "../components/textfields/TextField";
+import { styles } from "./style";
 
 export default function CreateAccountPage() {
     return(
-        <View>
-            <Image source={require('../assets/images/menseract_icon5.jpg')} /> 
-            <TextField placeholderText="Nome" />
+        <View style={styles.body}>
+            <Image style={stylePg.accountImage} source={require('../assets/images/menseract_icon5.jpg')} /> 
+            <TextField placeholderText="Nome">
+                <Text style={styles.TextLabel}>Nome de Usuário:</Text>
+            </TextField>
             <TextField placeholderText="E-mail">
-                <Text>Email:</Text>
+                <Text style={styles.TextLabel}>Email:</Text>
             </TextField>
-            <TextField type={true} placeholderText="Senha">
-                <Text>Senha:</Text>
+            <TextField hiddenText={true} placeholderText="Senha">
+                <Text style={styles.TextLabel}>Senha:</Text>
             </TextField>
-            <TextField type={true} placeholderText="Confire a Senha" />
+            <TextField hiddenText={true} placeholderText="Confirme a Senha" />
             <TextField placeholderText="Nome" />
         </View>
     )
 }
 
-const styleAccount = StyleSheet.create({
+const stylePg = StyleSheet.create({
     accountImage: {
         borderRadius: 100, 
         width: 80,

@@ -12,6 +12,10 @@ export const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight:'bold',
     },
+    TextLabel: {
+        fontSize: 18,
+        color: 'gray' 
+    },
     textinput: {
         width: 100,
         height: 40,

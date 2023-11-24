@@ -6,18 +6,18 @@ interface TextFieldProps {
     icon? : ElementType,
     iconstyle?: string,
     placeholderText: string
-    type?: boolean,
+    hiddenText?: boolean,
     children?: React.ReactNode,
 }
 
-export default function TextField({children, icon : Icon, iconstyle, placeholderText, type} : TextFieldProps) {
+export default function TextField({children, icon : Icon, iconstyle, placeholderText, hiddenText} : TextFieldProps) {
     return (
-        <View> 
+        <View style={{marginTop: 10}}> 
             {children}
             <View style={styles.container}>
                 {Icon && <Icon style={{left: -40, position: 'absolute'}} name={iconstyle} size={28} />}  
                 {/* <AccountCircleIcon /> */}
-                <TextInput secureTextEntry={type || false}  style={styles.textFieldStyle}  placeholder={placeholderText}  cursorColor={'black'}/> 
+                <TextInput secureTextEntry={hiddenText || false}  style={styles.textFieldStyle}  placeholder={placeholderText}  cursorColor={'black'}/> 
             </View>
         </View>
     )
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginTop: 20,
+        marginTop: 3,
     },
     textFieldStyle: {
         width: 260,

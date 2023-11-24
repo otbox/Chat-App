@@ -4,7 +4,7 @@
     "slug": "Mensseract",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/menseract_icon10-remove.png",
+    "icon": "./assets/images/icon-app.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/images/splash-icon.jpg",
@@ -19,7 +19,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/menseract_icon10-remove.png",
+        "foregroundImage": "./assets/images/icon-app.png",
         "backgroundColor": "#ffffff"
       }
     },

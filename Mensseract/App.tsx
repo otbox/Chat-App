@@ -1,22 +1,24 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
 import LoginPage from './pages/Login';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import CreateAccountPage from './pages/CreateAccount';
+import { NavigationStackProp } from 'react-navigation-stack';
+import ContactsPage from './pages/ContactsPage';
 
-
+export type nav = NavigationStackProp<any,any>
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <SafeAreaView>
+    // <SafeAreaView>
       <NavigationContainer>
         <Stack.Navigator initialRouteName='Login'>
           <Stack.Screen name='Login' component={LoginPage} />
+          <Stack.Screen name='CreateAccount' component={CreateAccountPage} />
+          <Stack.Screen name='ContactsPage' options = {{gestureEnabled: false, headerBackVisible: false}} component={ContactsPage} />
         </Stack.Navigator>
       </NavigationContainer>
-    </SafeAreaView>
+    // </SafeAreaView>
   );
 }
 

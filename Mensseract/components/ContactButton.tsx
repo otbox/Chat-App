@@ -20,6 +20,8 @@ export default function ContactButton({navigation, username, imagem} : ContactBu
 const style = StyleSheet.create({
     container: {
         marginHorizontal: 10,
+        marginVertical: 5,
+        borderRadius: 5,
         height: 100,
         flexDirection: 'row',
         alignItems: 'center',

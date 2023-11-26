@@ -1,20 +1,30 @@
-import { useEffect } from "react";
-import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { useEffect, useState } from "react";
+import { Image, ImageSourcePropType, ScrollView, Text, TouchableOpacity, View } from "react-native";
 import { nav } from "../App";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
-import ContactButton from "../components/ContactButton";
+import ContactButton from "../components/ContactsPage/ContactButton";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import { Ionicons } from "@expo/vector-icons";
+
+
+export interface UserProfile {
+    nome : string,
+    email : string,
+    imagem : ImageSourcePropType
+}
 
 const map = [{nome: 'Geraldo', imagem : '', id: ''}]
 
 const Tab = createMaterialTopTabNavigator(); 
 
 export default function ContactsPage() {
+  const [isActiveModal, setisActiveModal] = useState<boolean>(false);
     const navigation = useNavigation()
     useEffect(() => {
         navigation.setOptions({headerRight: () => (
-            <Text></Text>
+          <TouchableOpacity onPress={() => setisActiveModal(true)}>
+            <Image source={require('../assets/images/icon-app.png')} style={{width: 40, height: 40}} />
+          </TouchableOpacity>
         )})
     },[])
 

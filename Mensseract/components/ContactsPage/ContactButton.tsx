@@ -1,5 +1,5 @@
 import { Image, ImageSourcePropType, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { nav } from "../App";
+import { nav } from "../../App";
 
 interface ContactButtonProps {
     navigation : nav,

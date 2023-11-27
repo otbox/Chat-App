@@ -5,6 +5,7 @@ import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import ContactButton from "../components/ContactsPage/ContactButton";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import { Ionicons } from "@expo/vector-icons";
+import ContactModal from "../components/ContactsPage/ContactModal";
 
 
 export interface UserProfile {
@@ -17,11 +18,11 @@ const map = [{nome: 'Geraldo', imagem : '', id: ''}]
 
 const Tab = createMaterialTopTabNavigator(); 
 
-export default function ContactsPage() {
+export default function ContactsPage({navigation} : nav) {
   const [isActiveModal, setisActiveModal] = useState<boolean>(false);
-    const navigation = useNavigation()
+    const navigation1 = useNavigation()
     useEffect(() => {
-        navigation.setOptions({headerRight: () => (
+        navigation1.setOptions({headerRight: () => (
           <TouchableOpacity onPress={() => setisActiveModal(true)}>
             <Image source={require('../assets/images/icon-app.png')} style={{width: 40, height: 40}} />
           </TouchableOpacity>
@@ -30,64 +31,64 @@ export default function ContactsPage() {
 
     const Chat = () => {
         return (
-            <ScrollView endFillColor={'orange'  }>
+            <ScrollView endFillColor={'orange'}>
                 <ContactButton 
                 id={1}
-                navigation={'ssd'}
+                navigation={navigation}
                 username="Pedro"
                 imagem = {require('../assets/images/icon-app.png')}
                 />
                 <ContactButton 
                 id={1}
-                navigation={'ssd'}
+                navigation={navigation}
                 username="Pedro"
                 imagem = {require('../assets/images/icon-app.png')}
                 />
                 <ContactButton 
                 id={1}
-                navigation={'ssd'}
+                navigation={navigation}
                 username="Pedro"
                 imagem = {require('../assets/images/icon-app.png')}
                 />
                 <ContactButton 
                 id={1}
-                navigation={'ssd'}
+                navigation={navigation}
                 username="Pedro"
                 imagem = {require('../assets/images/icon-app.png')}
                 />
                 <ContactButton 
                 id={1}
-                navigation={'ssd'}
+                navigation={navigation}
                 username="Pedro"
                 imagem = {require('../assets/images/icon-app.png')}
                 />
                 <ContactButton 
                 id={1}
-                navigation={'ssd'}
+                navigation={navigation}
                 username="Pedro"
                 imagem = {require('../assets/images/icon-app.png')}
                 />
                 <ContactButton 
                 id={1}
-                navigation={'ssd'}
+                navigation={navigation}
                 username="Pedro"
                 imagem = {require('../assets/images/icon-app.png')}
                 />
                 <ContactButton 
                 id={1}
-                navigation={'ssd'}
+                navigation={navigation}
                 username="Pedro"
                 imagem = {require('../assets/images/icon-app.png')}
                 />
                 <ContactButton 
                 id={1}
-                navigation={'ssd'}
+                navigation={navigation}
                 username="Pedro"
                 imagem = {require('../assets/images/icon-app.png')}
                 />
                 <ContactButton 
                 id={1}
-                navigation={'ssd'}
+                navigation={navigation}
                 username="Pedro"
                 imagem = {require('../assets/images/icon-app.png')}
                 />
@@ -161,7 +162,8 @@ export default function ContactsPage() {
     }
 
     return(
-        
+        <View style={{flex: 1}}>
+            <ContactModal isActive={isActiveModal} setModalActive={setisActiveModal} /> 
             <Tab.Navigator tabBar={(props) => <CustomTab  {...props} />}>
                 <Tab.Screen 
                 name="Chat" 
@@ -183,6 +185,6 @@ export default function ContactsPage() {
                 component={Chat} 
                 options={{ tabBarIcon: 'cube'}}/>
             </Tab.Navigator>
-         
+        </View>         
     )
 };

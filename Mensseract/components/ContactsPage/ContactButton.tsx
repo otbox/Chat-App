@@ -2,7 +2,7 @@ import { Image, ImageSourcePropType, StyleSheet, Text, TouchableOpacity, View } 
 import { nav } from "../../App";
 
 interface ContactButtonProps {
-    navigation : nav,
+    navigation? : nav,
     imagem: ImageSourcePropType,
     username: string,
     id: number,
@@ -10,7 +10,7 @@ interface ContactButtonProps {
 export default function ContactButton({navigation, username, imagem} : ContactButtonProps) {
     console.log(imagem)
     return (
-    <TouchableOpacity style={style.container}> 
+    <TouchableOpacity onPress={() => {navigation.navigate('ChatPage11')}} style={style.container}> 
          <Image style={style.ProfileImage} source={imagem}/>    
         <Text style={style.textNome}>{username}</Text>
     </TouchableOpacity>

@@ -5,6 +5,8 @@ import CreateAccountPage from './pages/CreateAccount';
 import { NavigationStackProp } from 'react-navigation-stack';
 import ContactsPage from './pages/ContactsPage';
 import ChatPage from './pages/ChatPage';
+import { ReactNativeFirebase } from '@react-native-firebase/app';
+
 
 export type nav = NavigationStackProp<any,any>
 const Stack = createNativeStackNavigator();

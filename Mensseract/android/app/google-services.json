@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "887471216824",
+    "project_id": "mensserect-2215f",
+    "storage_bucket": "mensserect-2215f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:887471216824:android:3557b99a8a6d0914ddfc4d",
+        "android_client_info": {
+          "package_name": "com.menseracct.android"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgdiVm9Cuc7_8ucB4qLJJ4q9HPPz9VG84"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

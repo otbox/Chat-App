@@ -8,16 +8,17 @@ interface TextFieldProps {
     placeholderText: string
     hiddenText?: boolean,
     children?: React.ReactNode,
+    onChange?: React.Dispatch<React.SetStateAction<string>>,
 }
 
-export default function TextField({children, icon : Icon, iconstyle, placeholderText, hiddenText} : TextFieldProps) {
+export default function TextField({children, icon : Icon, iconstyle, placeholderText, hiddenText, onChange} : TextFieldProps) {
     return (
         <View style={{marginTop: 10}}> 
             {children}
             <View style={styles.container}>
                 {Icon && <Icon style={{left: -40, position: 'absolute'}} name={iconstyle} size={28} />}  
                 {/* <AccountCircleIcon /> */}
-                <TextInput secureTextEntry={hiddenText || false}  style={styles.textFieldStyle}  placeholder={placeholderText}  cursorColor={'black'}/> 
+                <TextInput onChangeText={(e) => onChange ? onChange(e) : null} secureTextEntry={hiddenText || false}  style={styles.textFieldStyle}  placeholder={placeholderText}  cursorColor={'black'}/> 
             </View>
         </View>
     )

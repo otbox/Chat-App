@@ -8,7 +8,7 @@ interface ContactButtonProps {
     id: number,
 }
 export default function ContactButton({navigation, username, imagem} : ContactButtonProps) {
-    console.log(imagem)
+    //console.log(imagem)
     return (
     <TouchableOpacity onPress={() => {navigation.navigate('ChatPage11')}} style={style.container}> 
          <Image style={style.ProfileImage} source={imagem}/>    
@@ -25,7 +25,8 @@ const style = StyleSheet.create({
         height: 100,
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: 'gray'
+        backgroundColor: 'lightgray',
+        paddingLeft: 10,
     },
     textNome: {
         fontSize: 22, 

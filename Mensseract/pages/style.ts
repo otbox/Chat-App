@@ -1,10 +1,12 @@
 import { StyleSheet } from "react-native";
-
+// import { Dimensions } from "react-native";
+// const widthMultiplierSizeProportinal = Dimensions.get('window').height / Dimensions.get('window').width
+// const  a = Dimensions.get('window').height * 0.4
 export const styles = StyleSheet.create({
     body: {
         flex: 1,
         flexDirection: 'column',
-        marginTop: '12%',
+        marginTop: '4%',
         //justifyContent: 'center', // Centralizar verticalmente
         alignItems: 'center', // Centralizar horizontalmente
     },
@@ -25,8 +27,8 @@ export const styles = StyleSheet.create({
         fontSize: 16,
     },
     image:{
-        width: 270,
-        height: 270,
+        width: 200,
+        height: 200,
         borderWidth: 2,
         borderColor: 'transparent',
         borderRadius: 10,
@@ -35,8 +37,8 @@ export const styles = StyleSheet.create({
         // borderColor: 'rgba(0, 0, 0, 0.2)',
     },
     fotter: {
-        position: 'absolute',
-        bottom: 40,
+        position: 'relative',
+        bottom: '-15%',
         width: '100%',
         paddingHorizontal: 40,
         height: 100,
@@ -50,6 +52,7 @@ export const styles = StyleSheet.create({
     },
     buttonLogin: {
         backgroundColor: 'black',
+        marginBottom: 30
     },
     buttonLogon: {
         backgroundColor: 'orange',

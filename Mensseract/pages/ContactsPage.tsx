@@ -6,7 +6,8 @@ import ContactButton from "../components/ContactsPage/ContactButton";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import { Ionicons } from "@expo/vector-icons";
 import ContactModal from "../components/ContactsPage/ContactModal";
-
+import auth  from '@react-native-firebase/auth'
+import NewChatButton from "../components/ContactsPage/NewChatButton";
 
 export interface UserProfile {
     nome : string,
@@ -14,14 +15,20 @@ export interface UserProfile {
     imagem : ImageSourcePropType
 }
 
+
 const map = [{nome: 'Geraldo', imagem : '', id: ''}]
 
 const Tab = createMaterialTopTabNavigator(); 
 
 export default function ContactsPage({navigation} : nav) {
   const [isActiveModal, setisActiveModal] = useState<boolean>(false);
-    const navigation1 = useNavigation()
+  const navigation1 = useNavigation()
+    
+    const getChatsAndGrups = async () => {
+      console.log(auth().currentUser)
+    }
     useEffect(() => {
+        getChatsAndGrups()
         navigation1.setOptions({headerRight: () => (
           <TouchableOpacity onPress={() => setisActiveModal(true)}>
             <Image source={require('../assets/images/icon-app.png')} style={{width: 40, height: 40}} />
@@ -135,11 +142,11 @@ export default function ContactsPage({navigation} : nav) {
         
                 return (
                   <TouchableOpacity
-                    accessibilityRole="button"
-                    accessibilityState={isFocused ? { selected: true } : {}}
-                    accessibilityLabel={options.tabBarAccessibilityLabel}
-                    testID={options.tabBarTestID}
-                    onPress={onPress}
+                  accessibilityRole="button"
+                  accessibilityState={isFocused ? { selected: true } : {}}
+                  accessibilityLabel={options.tabBarAccessibilityLabel}
+                  testID={options.tabBarTestID}
+                  onPress={onPress}
                     onLongPress={onLongPress}
                     style={{borderBottomWidth: isFocused ? 2 : 0 , borderColor: isFocused ? focusedColor : 'gray',flex: 1, height: 50, alignItems: 'center', justifyContent: 'center', flexDirection: 'row'}}
                     key={index}
@@ -164,13 +171,14 @@ export default function ContactsPage({navigation} : nav) {
     return(
         <View style={{flex: 1}}>
             <ContactModal isActive={isActiveModal} setModalActive={setisActiveModal} /> 
+            <NewChatButton /> 
             <Tab.Navigator tabBar={(props) => <CustomTab  {...props} />}>
                 <Tab.Screen 
                 name="Chat" 
                 component={Chat}
                 options={{ tabBarIcon: 'chatbox' }}
                 // options={{tabBarIcon(props) {
-                //     return(
+                  //     return(
                 //         <Ionicons size={24} name={'chatbox'}/>
                 //     )
                 // }}}

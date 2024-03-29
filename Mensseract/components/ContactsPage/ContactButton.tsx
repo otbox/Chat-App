@@ -1,5 +1,6 @@
 import { Image, ImageSourcePropType, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { nav } from "../../App";
+import database from "@react-native-firebase/database"
 
 interface ContactButtonProps {
     navigation? : nav,
@@ -7,8 +8,18 @@ interface ContactButtonProps {
     username: string,
     id: number,
 }
+
 export default function ContactButton({navigation, username, imagem} : ContactButtonProps) {
+
     //console.log(imagem)
+
+    const CreateOrAccess = async () => {
+        database().ref(`/chats`).push();
+        const ChatData = {
+            participants : {}
+        }
+    }
+
     return (
     <TouchableOpacity onPress={() => {navigation.navigate('ChatPage11')}} style={style.container}> 
          <Image style={style.ProfileImage} source={imagem}/>    

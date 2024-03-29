@@ -1,23 +1,27 @@
 import { useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { nav } from "../../App";
 
-export default function NewChatButton() {
+interface newChatsButton {
+    navigation? : nav,
+}
+
+export default function NewChatButton({navigation} : newChatsButton) {
     const [open, setOpen] = useState<boolean>(false);
     type buttonProps = {
         IconName : GLYPHS, 
-        size : number
+        size : number,
+        onClick?: () => void,
     }
-    const ButtonIcon = ({IconName, size} : buttonProps) => (
-        <TouchableOpacity style= {style.buttons}>
+    const ButtonIcon = ({IconName, size, onClick} : buttonProps) => (
+        <TouchableOpacity onPress={onClick} style= {style.buttons}>
             <Ionicons name={IconName} size={size} />
         </TouchableOpacity>
     )
     return (
         <View style={style.container}>
-            <ButtonIcon IconName={'add'} size={38}/>
-            <ButtonIcon IconName={'add'} size={38}/>
-            <ButtonIcon IconName={'add'} size={38}/>
+            <ButtonIcon onClick={() => {navigation.navigate('SearchPage')}} IconName={'add'} size={38}/>
         </View>
     )
 };

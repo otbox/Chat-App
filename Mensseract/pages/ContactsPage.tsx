@@ -171,7 +171,7 @@ export default function ContactsPage({navigation} : nav) {
     return(
         <View style={{flex: 1}}>
             <ContactModal isActive={isActiveModal} setModalActive={setisActiveModal} /> 
-            <NewChatButton /> 
+            <NewChatButton navigation={navigation}/> 
             <Tab.Navigator tabBar={(props) => <CustomTab  {...props} />}>
                 <Tab.Screen 
                 name="Chat" 

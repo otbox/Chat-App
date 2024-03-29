@@ -14,12 +14,12 @@ export default function LoginPage({navigation} : nav) {
         if (user){
             navigation.replace("ContactsPage")
         }else{
-            navigation.replace("Login")
+            // navigation.replace("Login")
         }
     }
     useEffect(() => {
         const sub = auth().onAuthStateChanged(onAuthStateChanged);
-        return sub
+        return sub;
     }, [])
     const LoginAndGoHome = async () => { 
         if (email && passw) {
